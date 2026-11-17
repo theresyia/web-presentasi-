@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DompetKu — Progres Pembuatan Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <!-- CDN: ikon & animasi -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Latar dekoratif -->
+  <div class="bg" aria-hidden="true">
+    <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+    <i class="grid-bg"></i>
+  </div>
+
+  <div class="progress-top"><span id="topBar"></span></div>
+
+  <main class="deck" id="deck">
+
+    <!-- 1. COVER -->
+    <section class="slide cover active" data-title="Cover">
+      <div class="cover-left">
+        <span class="chip">Progres Pembuatan Web</span>
+        <h1>Dompet<span>Ku</span></h1>
+        <p class="lead">Aplikasi Pencatatan Keuangan Harian Berbasis Web</p>
+        <p class="muted">Dibangun dengan <b>HTML</b>, <b>CSS</b> &amp; <b>JavaScript</b></p>
+        <p class="scroll-hint"><i class="bi bi-mouse"></i> Gulir atau tekan <kbd>↓</kbd> untuk lanjut</p>
+      </div>
+      <div class="cover-right card">
+        <div class="photo" data-initial="TA">
+          <img src="D:\web presentasi\image\photothere.jpeg" alt="Foto Theresyia Aurellia" onerror="this.parentElement.classList.add('empty'); this.remove();">
+        </div>
+        <dl class="identity">
+          <div><dt>Nama</dt><dd>Theresyia Aurellia</dd></div>
+          <div><dt>NPM</dt><dd>25010007</dd></div>
+          <div><dt>Mata Kuliah</dt><dd>Pemrograman Web</dd></div>
+          <div><dt>Dosen Pengampu</dt><dd>Dimas Aulia Triangguna, M.Kom</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 2. MASALAH -->
+    <section class="slide" data-title="Deskripsi Masalah">
+      <header class="head"><span class="eyebrow">01 · Latar Belakang</span><h2>Deskripsi Masalah</h2></header>
+      <p class="intro">Banyak orang melakukan transaksi harian — membeli makanan, membayar transportasi, menerima uang — namun jarang dicatat sehingga sulit mengetahui ke mana uang digunakan.</p>
+      <div class="grid g3">
+        <article class="card num"><b>01</b><h3>Sering lupa mencatat</h3><p>Pengeluaran kecil seperti makanan atau minuman sering tidak dicatat.</p></article>
+        <article class="card num"><b>02</b><h3>Sulit tahu ke mana uang pergi</h3><p>Tanpa catatan jelas, pengeluaran terbesar sulit diketahui.</p></article>
+        <article class="card num"><b>03</b><h3>Pencatatan manual</h3><p>Dicatat di buku atau catatan HP yang kurang terorganisir.</p></article>
+        <article class="card num"><b>04</b><h3>Sulit menghitung sisa uang</h3><p>Pengguna harus menghitung pemasukan dikurangi pengeluaran sendiri.</p></article>
+        <article class="card num"><b>05</b><h3>Tidak ada laporan sederhana</h3><p>Sulit melihat total pemasukan dan pengeluaran harian atau bulanan.</p></article>
+      </div>
+    </section>
+
+    <!-- 3. SOLUSI -->
+    <section class="slide" data-title="Solusi">
+      <header class="head"><span class="eyebrow">02 · Solusi</span><h2>Penyelesaian: Aplikasi DompetKu</h2></header>
+      <p class="intro">DompetKu membantu pengguna mencatat dan memantau keuangan sehari-hari dalam satu aplikasi.</p>
+      <ol class="steps">
+        <li><b>1</b><div><h3>Tombol “Tambah Transaksi”</h3><p>Mudah digunakan, mengatasi kebiasaan lupa mencatat.</p></div></li>
+        <li><b>2</b><div><h3>Kategori pengeluaran</h3><p>Pengguna tahu uangnya dipakai untuk apa saja.</p></div></li>
+        <li><b>3</b><div><h3>Riwayat tersimpan rapi</h3><p>Semua transaksi tersimpan di dalam aplikasi.</p></div></li>
+        <li><b>4</b><div><h3>Saldo otomatis</h3><p>Sistem menghitung sisa uang tanpa hitung manual.</p></div></li>
+        <li><b>5</b><div><h3>Ringkasan harian &amp; bulanan</h3><p>Laporan sederhana pemasukan dan pengeluaran.</p></div></li>
+      </ol>
+    </section>
+
+    <!-- 4. BUSINESS LOGIC -->
+    <section class="slide" data-title="Business Logic">
+      <header class="head"><span class="eyebrow">03 · Business Logic</span><h2>Alur Utama Sistem</h2></header>
+      <p class="intro">Pengguna mencatat transaksi → sistem memvalidasi → saldo diperbarui otomatis → laporan dapat dilihat.</p>
+      <div class="flow">
+        <div class="node card"><b>1</b><h3>Input Transaksi</h3><p>Pilih pemasukan/pengeluaran; isi nominal, kategori, tanggal, catatan.</p></div>
+        <div class="arrow">→</div>
+        <div class="node card"><b>2</b><h3>Validasi Data</h3><p>Nominal harus valid dan data wajib terisi sebelum disimpan.</p></div>
+        <div class="arrow">→</div>
+        <div class="node card"><b>3</b><h3>Simpan Transaksi</h3><p>Disimpan sebagai riwayat agar pencatatan terorganisir.</p></div>
+        <div class="arrow">→</div>
+        <div class="node card"><b>4</b><h3>Hitung Saldo</h3><p>Saldo = total pemasukan − total pengeluaran.</p></div>
+        <div class="arrow">→</div>
+        <div class="node card"><b>5</b><h3>Kategori &amp; Laporan</h3><p>Pengeluaran dikelompokkan; ringkasan harian &amp; bulanan tampil.</p></div>
+      </div>
+      <div class="formula card dark">
+        <span>Rumus saldo</span>
+        <code>saldo = Σ pemasukan − Σ pengeluaran</code>
+      </div>
+    </section>
+
+    <!-- 5. ROLE & MATRIX -->
+    <section class="slide" data-title="Role & Access Matrix">
+      <header class="head"><span class="eyebrow">04 · Hak Akses</span><h2>Role Akses &amp; Access Matrix</h2></header>
+      <div class="split">
+        <div class="roles">
+          <article class="card role"><div class="avatar">U</div><div><h3>User / Pengguna</h3><p>Tambah transaksi, lihat riwayat, lihat saldo &amp; ringkasan, kelola kategori.</p></div></article>
+          <article class="card role"><div class="avatar admin">A</div><div><h3>Admin</h3><p>Kelola data pengguna, pantau data transaksi, kelola kategori, lihat ringkasan sistem.</p></div></article>
+          <ul class="rules">
+            <li>User hanya mengelola data transaksi miliknya.</li>
+            <li>Akses fitur mengikuti role akun yang login.</li>
+            <li>Data transaksi menjadi dasar saldo &amp; laporan.</li>
+          </ul>
+        </div>
+        <div class="card table-wrap">
+          <table>
+            <thead><tr><th>Fitur / Aktivitas</th><th>User</th><th>Admin</th></tr></thead>
+            <tbody>
+              <tr><td>Login &amp; akses dashboard</td><td class="y">✓</td><td class="y">✓</td></tr>
+              <tr><td>Tambah transaksi</td><td class="y">✓</td><td class="y">✓</td></tr>
+              <tr><td>Lihat / kelola transaksi</td><td class="y">✓</td><td class="y">✓</td></tr>
+              <tr><td>Lihat saldo otomatis</td><td class="y">✓</td><td class="y">✓</td></tr>
+              <tr><td>Ringkasan harian &amp; bulanan</td><td class="y">✓</td><td class="y">✓</td></tr>
+              <tr><td>Kelola kategori</td><td class="y">✓</td><td class="y">✓</td></tr>
+              <tr><td>Kelola data pengguna</td><td class="n">•</td><td class="y">✓</td></tr>
+            </tbody>
+          </table>
+          <p class="note">✓ = dapat mengakses / mengelola &nbsp; • = bukan hak akses utama</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SRS: KEBUTUHAN FUNGSIONAL -->
+    <section class="slide" data-title="SRS Fungsional">
+      <header class="head"><span class="eyebrow">05 · SRS</span><h2>Kebutuhan Fungsional (16 Fitur)</h2></header>
+      <p class="intro">Berdasarkan dokumen SRS DompetKu v1.0, kebutuhan dibagi ke 7 modul utama.</p>
+      <div class="grid g3 mods">
+        <article class="card"><span class="fr">FR-01 – 03, 16</span><h3>Autentikasi</h3><p>Registrasi, login (No. HP/E-mail + kata sandi), lupa kata sandi, logout.</p></article>
+        <article class="card"><span class="fr">FR-04</span><h3>Dashboard</h3><p>Saldo, pemasukan, pengeluaran, grafik arus kas, kategori, transaksi terbaru.</p></article>
+        <article class="card"><span class="fr">FR-05 – 07</span><h3>Transaksi</h3><p>Tambah, lihat, ubah, hapus, dan filter transaksi.</p></article>
+        <article class="card"><span class="fr">FR-08</span><h3>Kategori</h3><p>Tambah kategori pemasukan/pengeluaran dengan ikon dan warna.</p></article>
+        <article class="card"><span class="fr">FR-09 – 10</span><h3>Laporan</h3><p>Laporan per bulan, grafik, rincian per kategori, ekspor.</p></article>
+        <article class="card"><span class="fr">FR-11</span><h3>Pencarian</h3><p>Kata kunci + filter kategori, jenis, tanggal, nominal min/maks.</p></article>
+        <article class="card"><span class="fr">FR-12 – 15</span><h3>Profil &amp; Pengaturan</h3><p>Info pribadi, ubah kata sandi, notifikasi, tema &amp; awal minggu.</p></article>
+      </div>
+    </section>
+
+    <!-- SRS: NFR & ATURAN -->
+    <section class="slide" data-title="SRS Nonfungsional">
+      <header class="head"><span class="eyebrow">06 · SRS</span><h2>Kebutuhan Nonfungsional &amp; Aturan Bisnis</h2></header>
+      <div class="split">
+        <div class="card">
+          <h3>Nonfungsional</h3>
+          <ul class="rules">
+            <li><b>Keamanan:</b> kata sandi disimpan aman, akses dibatasi per akun.</li>
+            <li><b>Privasi:</b> data keuangan tidak terlihat pengguna lain.</li>
+            <li><b>Usability:</b> navigasi konsisten lewat menu samping.</li>
+            <li><b>Responsif:</b> nyaman di desktop &amp; menyesuaikan perangkat.</li>
+            <li><b>Maintainability:</b> modul transaksi, kategori, laporan, profil terpisah.</li>
+            <li><b>Reliability:</b> data tersimpan tampil konsisten di dashboard &amp; laporan.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Aturan Bisnis</h3>
+          <ul class="rules">
+            <li>Transaksi: <b>Pemasukan</b> atau <b>Pengeluaran</b>.</li>
+            <li>Setiap transaksi punya kategori dan nominal.</li>
+            <li>Kategori juga dibedakan jenis pemasukan/pengeluaran.</li>
+            <li>Saldo dihitung dari pemasukan dan pengeluaran.</li>
+            <li>Laporan dilihat per periode/bulan.</li>
+            <li>Data keuangan milik akun pribadi pengguna.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- UML: USE CASE -->
+    <section class="slide" data-title="Use Case">
+      <header class="head"><span class="eyebrow">07 · UML</span><h2>Use Case Diagram</h2></header>
+      <p class="intro">Aktor dan fungsi yang dapat diakses pada DompetKu.</p>
+      <div class="split">
+        <div class="card">
+          <div class="actor"><div class="avatar">U</div><h3>Pengguna</h3></div>
+          <div class="pills">
+            <span>Registrasi Akun</span><span>Login</span><span>Melihat Dashboard</span><span>Mengelola Pemasukan</span><span>Mengelola Pengeluaran</span><span>Melihat Laporan Keuangan</span><span>Mengatur Kategori</span><span>Mengubah Profil</span><span>Logout</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="actor"><div class="avatar admin">A</div><h3>Admin</h3></div>
+          <div class="pills">
+            <span>Kelola Data Pengguna</span><span>Reset Password</span><span>Kelola Kategori</span><span>Hapus Data</span>
+          </div>
+          <p class="note">Relasi: «include» Mengelola Data Keuangan; «extend» Cetak/Unduh Keuangan.</p>
+          <p class="note">Catatan: SRS tidak mewajibkan fitur admin, namun role Admin sudah diimplementasikan di aplikasi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- UML: ACTIVITY -->
+    <section class="slide" data-title="Activity Diagram">
+      <header class="head"><span class="eyebrow">07 · UML</span><h2>Activity Diagram</h2></header>
+      <p class="intro">Alur kerja antara Pengguna, Sistem, dan Database.</p>
+      <ol class="act">
+        <li><i class="u">Pengguna</i>Buka website DompetKu</li>
+        <li><i class="u">Pengguna</i>Login (E-mail/Username &amp; Password)</li>
+        <li><i class="s">Sistem</i>Validasi data login</li>
+        <li><i class="d">Database</i>Cek data pengguna → <b>&nbsp;Data valid?&nbsp;</b> Tidak: kembali ke login</li>
+        <li><i class="s">Sistem</i>Ya: tampilkan Dashboard</li>
+        <li><i class="u">Pengguna</i>Pilih menu Pemasukan/Pengeluaran &amp; input data transaksi</li>
+        <li><i class="s">Sistem</i>Simpan ke database &amp; tampilkan pesan berhasil</li>
+        <li><i class="u">Pengguna</i>Lihat laporan keuangan</li>
+        <li><i class="d">Database</i>Ambil data laporan → sistem tampilkan laporan</li>
+        <li><i class="u">Pengguna</i>Unduh/cetak laporan, lalu Logout (sesi berakhir)</li>
+      </ol>
+    </section>
+
+    <!-- UML: SEQUENCE -->
+    <section class="slide" data-title="Sequence Diagram">
+      <header class="head"><span class="eyebrow">07 · UML</span><h2>Sequence Diagram</h2></header>
+      <p class="intro">Skenario: Pengguna mencatat pemasukan dan pengeluaran (19 pesan antar Pengguna, Web Browser, Sistem, Database, Laporan).</p>
+      <div class="card table-wrap seq">
+        <table>
+          <thead><tr><th>#</th><th>Pesan</th><th>Dari → Ke</th></tr></thead>
+          <tbody>
+            <tr><td>1–3</td><td>Buka aplikasi, request &amp; tampil halaman login</td><td>User ⇄ Browser ⇄ Sistem</td></tr>
+            <tr><td>4–5</td><td>Input e-mail &amp; password, kirim data login</td><td>User → Browser → Sistem</td></tr>
+            <tr><td>6–8</td><td>Validasi data, hasil validasi, tampil Dashboard</td><td>Sistem ⇄ Database</td></tr>
+            <tr><td>9–10</td><td>Pilih menu Catat Transaksi, input data</td><td>User → Browser → Sistem</td></tr>
+            <tr><td>11–13</td><td>Simpan data, data tersimpan, notifikasi berhasil</td><td>Sistem ⇄ Database</td></tr>
+            <tr><td>14–15</td><td>Lihat laporan, request data laporan</td><td>User → Browser → Sistem</td></tr>
+            <tr><td>16–19</td><td>Ambil data laporan, tampilkan laporan ke pengguna</td><td>Sistem ⇄ Database → User</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- UML: CLASS -->
+    <section class="slide" data-title="Class Diagram">
+      <header class="head"><span class="eyebrow">07 · UML</span><h2>Class Diagram</h2></header>
+      <p class="intro">Model data DompetKu: User memiliki Account, Account mencatat Transaction yang termasuk dalam Category; User juga mengelola Budget dan membuat MonthlyReport.</p>
+      <div class="grid g3 cls">
+        <article class="card"><h3>User</h3><ul><li>- userId: String</li><li>- email: String</li><li>+ login(): Boolean</li><li>+ logout(): Void</li></ul></article>
+        <article class="card"><h3>Account</h3><ul><li>- accountId: String</li><li>- namaAkun: String</li><li>- saldo: Decimal</li><li>+ hitungSaldo(): Decimal</li></ul></article>
+        <article class="card"><h3>Transaction</h3><ul><li>- transactionId: String</li><li>- tanggal: Date</li><li>- jumlah: Decimal</li><li>- tipe: String</li><li>- catatan: String</li><li>+ tambah() / ubah() / hapus()</li></ul></article>
+        <article class="card"><h3>Category</h3><ul><li>- categoryId: String</li><li>- namaKategori: String</li><li>- warna: String</li><li>+ daftarTransaksi(): List</li></ul></article>
+        <article class="card"><h3>Budget</h3><ul><li>- budgetId: String</li><li>- period: String</li><li>- batasAnggaran: Decimal</li><li>+ hitungSisa(): Decimal</li></ul></article>
+        <article class="card"><h3>MonthlyReport</h3><ul><li>- reportId: String</li><li>- bulan: String</li><li>- totalPemasukan: Decimal</li><li>- totalPengeluaran: Decimal</li><li>+ generateReport(): Void</li></ul></article>
+      </div>
+    </section>
+
+    <!-- 6. WIREFRAME (diisi oleh script.js) -->
+    <section class="slide" data-title="Wireframe">
+      <header class="head"><span class="eyebrow">08 · Desain</span><h2>Wireframe Halaman</h2></header>
+      <div class="tabs" id="wfTabs" role="tablist"></div>
+      <figure class="wf card">
+        <img id="wfImg" alt="">
+        <figcaption id="wfCap"></figcaption>
+      </figure>
+    </section>
+
+    <!-- HASIL: SCREENSHOT APLIKASI -->
+    <section class="slide" data-title="Hasil Aplikasi">
+      <header class="head"><span class="eyebrow">09 · Hasil</span><h2>Hasil Implementasi Aplikasi</h2></header>
+      <div class="tabs" id="hsTabs" role="tablist"></div>
+      <figure class="wf card">
+        <img id="hsImg" alt="">
+        <figcaption id="hsCap"></figcaption>
+      </figure>
+    </section>
+
+    <!-- HASIL: FITUR TERIMPLEMENTASI -->
+    <section class="slide" data-title="Fitur Terimplementasi">
+      <header class="head"><span class="eyebrow">10 · Hasil</span><h2>Fitur yang Sudah Berjalan</h2></header>
+      <p class="intro">Aplikasi sudah dapat dijalankan dengan dua role (User &amp; Admin). Menu sidebar menyesuaikan role yang login, dan data disimpan di localStorage browser.</p>
+      <div class="split">
+        <div class="card">
+          <div class="actor"><div class="avatar">U</div><h3>User</h3></div>
+          <ul class="rules ok">
+            <li>Registrasi &amp; login dengan validasi (e-mail, password min. 6 karakter)</li>
+            <li>Lupa sandi lewat popup atur ulang password</li>
+            <li>Dashboard: saldo, pemasukan, pengeluaran, grafik 6 bulan, transaksi terbaru</li>
+            <li>Tambah, ubah, hapus &amp; filter transaksi</li>
+            <li>Atur kategori pribadi</li>
+            <li>Laporan per bulan, cetak &amp; unduh CSV</li>
+            <li>Ubah profil &amp; logout</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="actor"><div class="avatar admin">A</div><h3>Admin</h3></div>
+          <ul class="rules ok">
+            <li>Dashboard admin (ringkasan sistem)</li>
+            <li>Kelola pengguna: ubah data, reset password, hapus akun</li>
+            <li>Kelola kategori (kategori global &amp; milik pengguna)</li>
+            <li>Hapus data transaksi / seluruh data pengguna</li>
+          </ul>
+          <p class="note">Data setiap user terpisah: user hanya melihat transaksi miliknya sendiri.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PROGRES (diisi oleh script.js) -->
+    <section class="slide" data-title="Progres">
+      <header class="head"><span class="eyebrow">11 · Progres</span><h2>Progres Pengembangan</h2></header>
+      <div class="split progress-split">
+        <div class="card overall">
+          <div class="ring" id="ring"><span id="ringVal">0%</span></div>
+          <p>Progres keseluruhan</p>
+        </div>
+        <div class="card"><ul class="tasks" id="tasks"></ul></div>
+      </div>
+    </section>
+
+    <!-- 8. TEKNOLOGI -->
+    <section class="slide" data-title="Pembagian 3 Bahasa">
+      <header class="head"><span class="eyebrow">12 · Teknologi</span><h2>Tiga Bahasa, Tiga File Terpisah</h2></header>
+      <p class="intro">Struktur, tampilan, dan logika dipisah agar kode rapi dan mudah dikembangkan.</p>
+      <div class="grid g3 tech">
+        <article class="card tech-card html"><span class="file">index.html</span><h3>HTML — Struktur</h3><ul><li>Kerangka halaman &amp; slide</li><li>Form transaksi, tabel, kartu saldo</li><li>Navigasi sidebar &amp; semantik</li></ul></article>
+        <article class="card tech-card css"><span class="file">style.css</span><h3>CSS — Tampilan</h3><ul><li>Tema hijau DompetKu</li><li>Layout grid / flexbox</li><li>Responsif &amp; animasi halus</li></ul></article>
+        <article class="card tech-card js"><span class="file">script.js</span><h3>JavaScript — Logika</h3><ul><li>Validasi input transaksi</li><li>Hitung saldo otomatis</li><li>Simpan data (localStorage)</li></ul></article>
+      </div>
+    </section>
+
+    <!-- 9. PENUTUP -->
+    <section class="slide closing" data-title="Selanjutnya">
+      <header class="head"><span class="eyebrow">13 · Langkah Berikutnya</span><h2>Rencana Selanjutnya</h2></header>
+      <ul class="next" id="nextList"></ul>
+      <p class="thanks">Terima kasih 🙏</p>
+    </section>
+
+  </main>
+
+  <nav class="controls">
+    <button id="prev" aria-label="Slide sebelumnya" title="Sebelumnya (↑)"><i class="bi bi-chevron-up"></i></button>
+    <span id="counter">1 / 1</span>
+    <button id="next" aria-label="Slide berikutnya" title="Berikutnya (↓)"><i class="bi bi-chevron-down"></i></button>
+    <button id="full" aria-label="Layar penuh" title="Layar penuh (F)"><i class="bi bi-arrows-fullscreen"></i></button>
+  </nav>
+  <div class="dots" id="dots" aria-label="Navigasi slide"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
